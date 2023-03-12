@@ -1,0 +1,14 @@
+<nav id="nav-container">
+  <ul class="nav">
+    <li class="logo">
+      <a href="#"><i>Mail List</i></a>
+    </li>
+    <li class="burger" (click)="toggleMenu()">
+      <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+    </li>
+    <li class="menu" [class.is-open]="isMenuOpen">
+      <a class="menu-item" href="">Home</a>
+      <a class="menu-item" href="">Login</a>
+    </li>
+  </ul>
+</nav>
