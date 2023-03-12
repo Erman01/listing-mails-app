@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+  <div class="card">
+    <div class="card-body">
+      <form
+        class="form-signin"
+        (ngSubmit)="onSubmit(signInform)"
+        #signInform="ngForm"
+      >
+        <div class="mb-3">
+          <label class="mb-2" for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            class="form-control"
+            name="username"
+            required
+            autofocus
+            ngModel
+          />
+        </div>
+
+        <div class="mb-4">
+          <div class="mb-2 w-100">
+            <label for="password">Password</label>
+          </div>
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            name="password"
+            required
+            ngModel
+          />
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="submit-btn">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
