@@ -1,0 +1,16 @@
+<div class="table-container">
+  <table class="table table-striped w-50">
+    <thead>
+      <tr>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mail of mails">
+        <td scope="row">{{ mail.name }}</td>
+        <td>{{ mail.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
