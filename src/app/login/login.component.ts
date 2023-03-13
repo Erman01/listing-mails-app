@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignInData } from '../model/signInData';
 import { AuthenticationService } from '../service/authentication/authentication.service';
 
@@ -12,7 +13,10 @@ export class LoginComponent {
   isFormInvalid = false;
   areCredentialsInvalid = false;
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
 
   onSubmit(signInForm: NgForm) {
     if (!signInForm.valid) {
@@ -21,13 +25,8 @@ export class LoginComponent {
       return;
     }
     this.checkCredentials(signInForm);
-    console.log(signInForm.value);
-    const signInData = new SignInData(
-      signInForm.value.username,
-      signInForm.value.password
-    );
-    this.authenticationService.authenticate(signInData);
   }
+
   private checkCredentials(signInForm: NgForm) {
     const signInData = new SignInData(
       signInForm.value.username,
@@ -37,5 +36,10 @@ export class LoginComponent {
       this.isFormInvalid = false;
       this.areCredentialsInvalid = true;
     }
+
+    this.authenticationService.authenticate(signInData).subscribe((data) => {
+      localStorage.setItem('token', data.token);
+      this.router.navigate(['/mails']);
+    });
   }
 }
