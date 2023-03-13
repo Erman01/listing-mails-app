@@ -8,7 +8,7 @@ import { faBars, faMailBulk } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'listing-mails-app';
+  title = 'mails-app';
   isMenuOpen = false;
 
   toggleMenu(): void {
